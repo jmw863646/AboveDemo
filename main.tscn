@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://ljyovf0n75sh"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_bjt3a"]
+[ext_resource type="Script" path="res://Hero.cs" id="1_fq222"]
+[ext_resource type="Texture2D" uid="uid://bwyaldtd6vdfp" path="res://icon.svg" id="2_h7y3v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slhxb"]
+radius = 46.2709
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_bjt3a")
+
+[node name="Hero" type="CharacterBody2D" parent="."]
+floor_stop_on_slope = false
+script = ExtResource("1_fq222")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hero"]
+shape = SubResource("CircleShape2D_slhxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hero"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_h7y3v")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Bottom" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 600, 1150, 600, 1150, 650, 0, 650)
+
+[node name="Shape" type="Polygon2D" parent="Walls/Bottom"]
+polygon = PackedVector2Array(0, 600, 1150, 600, 1150, 650, 0, 650)
+
+[node name="Top" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 0, 1150, 0, 1150, 50, 0, 50)
+
+[node name="Shape" type="Polygon2D" parent="Walls/Top"]
+polygon = PackedVector2Array(0, 0, 1150, 0, 1150, 50, 0, 50)
+
+[node name="Left" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 0, 50, 0, 50, 650, 0, 650)
+
+[node name="Shape" type="Polygon2D" parent="Walls/Left"]
+polygon = PackedVector2Array(0, 0, 50, 0, 50, 650, 0, 650)
+
+[node name="Right" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(1100, 0, 1150, 0, 1150, 650, 1100, 650)
+
+[node name="Shape" type="Polygon2D" parent="Walls/Right"]
+polygon = PackedVector2Array(1100, 0, 1150, 0, 1150, 650, 1100, 650)

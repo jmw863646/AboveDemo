@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Above Demo": {
+      "commandName": "Project"
+    },
+    "Godot": {
+      "commandName": "Executable",
+      "executablePath": "D:\\justi\\Software\\Godot_v4.2.2-stable_mono_win64\\Godot_v4.2.2-stable_mono_win64.exe",
+      "workingDirectory": "D:\\justi\\Godot\\AboveDemo",
+      "nativeDebugging": true
+    }
+  }
+}
